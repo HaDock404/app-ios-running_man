@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Image, Animated, TouchableWithoutFeedback } from 'react-native';
 
+import RunningMan from '../components/RunningMan';
+
 export default function RunningGame() {
   const [jump, setJump] = useState(new Animated.Value(0));
   const [obstaclePosition] = useState(new Animated.Value(300));
@@ -59,10 +61,7 @@ export default function RunningGame() {
             left: 50,
           }}
         >
-          <Image
-            source={{ uri: 'https://c7.alamy.com/comp/2C3FM8X/vector-pixel-art-man-running-isolated-cartoon-2C3FM8X.jpg' }} // Remplacez par l'URL de votre image de bonhomme
-            style={{ width: 50, height: 50 }}
-          />
+          <RunningMan />
         </Animated.View>
 
         {/* Caisse */}
