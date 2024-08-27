@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
 
+
 const SPRITE_WIDTH = 100; // Largeur d'une frame de l'image sprite
 const SPRITE_HEIGHT = 100; // Hauteur d'une frame de l'image sprite
 const SPRITE_FRAMES = 3; // Nombre total de frames dans l'image sprite
