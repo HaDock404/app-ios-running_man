@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image, Animated, TouchableWithoutFeedback } from 'react-native';
+import { View, Animated, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 
 import RunningMan from '../components/RunningMan';
+import Background from '../components/Background';
 
 export default function RunningGame() {
   const [jump, setJump] = useState(new Animated.Value(0));
@@ -30,27 +31,23 @@ export default function RunningGame() {
       Animated.timing(obstaclePosition, {
         toValue: -100,
         duration: 2000,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }).start(() => {
         moveObstacle(); // Boucle pour faire défiler les caisses
       });
     };
 
     moveObstacle();
-  }, [obstaclePosition]);
+  }, []);
 
   return (
     <TouchableWithoutFeedback onPress={handleJump}>
       <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center' }}>
         {/* Fond défilant */}
-        <Image
-          source={{ uri: 'https://www.megavoxels.com/wp-content/uploads/2023/06/Pixel-Art-House.png' }} // Remplacez par l'URL de votre image de fond
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-          }}
-        />
+        <View style={styles.container}>
+          <Background />
+            {/* Autres composants de ton application */}
+        </View>
 
         {/* Bonhomme */}
         <Animated.View
@@ -79,3 +76,11 @@ export default function RunningGame() {
     </TouchableWithoutFeedback>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+});

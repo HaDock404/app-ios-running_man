@@ -18,7 +18,7 @@ const RunningMan: React.FC = () => {
         Animated.timing(animationValue, {
           toValue: i,
           duration: 0, // Transition instantanée
-          useNativeDriver: true,
+          useNativeDriver: false,
         }),
         Animated.delay(ANIMATION_SPEED) // Pause entre les frames
       );
